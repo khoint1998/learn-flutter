@@ -15,15 +15,8 @@ class Question extends StatelessWidget {
         const Text('Hello world'),
         Text(
           testing,
-          style: const TextStyle(fontSize: 28),
-          textAlign: TextAlign.end,
-        ),
-        TextButton(
-          style: TextButton.styleFrom(
-            textStyle: const TextStyle(fontSize: 20),
-          ),
-          onPressed: () {},
-          child: const Text('Click me'),
+          style: const TextStyle(fontSize: 15),
+          textAlign: TextAlign.right,
         ),
         const ContainerWidgetTest(),
       ],
