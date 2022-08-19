@@ -12,12 +12,23 @@ class ContainerWidgetTest extends StatefulWidget {
 class _ContainerState extends State<ContainerWidgetTest> {
   int _result = 0; //an int? that could be null at some point
 
+  int get getResult {
+    //A Getter
+    return _result;
+  }
+
   void _setNumber() {
     if (_result < 3) {
       setState(() {
         _result++;
       });
     }
+  }
+
+  void _resetNumber() {
+    setState(() {
+      _result = 0;
+    });
   }
 
   @override
@@ -40,7 +51,19 @@ class _ContainerState extends State<ContainerWidgetTest> {
         ),
         _result < 3
             ? AnswerWidget(callbackSample: _setNumber)
-            : const Text('Limit reached, try the blue one down there')
+            : Column(
+                children: [
+                  const Text('Limit reached, try the blue one down there'),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 20),
+                      primary: Colors.orange,
+                    ),
+                    onPressed: _resetNumber,
+                    child: const Text('Reset counter'),
+                  ),
+                ],
+              )
       ],
     );
   }
